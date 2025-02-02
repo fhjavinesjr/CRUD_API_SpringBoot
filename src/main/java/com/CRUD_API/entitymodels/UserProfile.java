@@ -42,11 +42,14 @@ public class UserProfile {
     @NotBlank(message = "Civil Status is mandatory")
     private String civilStatus;
 
+    @NotBlank(message = "Citizenship is mandatory")
+    private String citizenship;
+
     public UserProfile() {
 
     }
 
-    public UserProfile(String name, String email, String gender, LocalDate birthDate, Integer age, String address, String civilStatus) {
+    public UserProfile(String name, String email, String gender, LocalDate birthDate, Integer age, String address, String civilStatus, String citizenship) {
         this.name = name;
         this.email = email;
         this.gender = gender;
@@ -54,6 +57,15 @@ public class UserProfile {
         this.age = age;
         this.address = address;
         this.civilStatus = civilStatus;
+        this.citizenship = citizenship;
+    }
+
+    public String getCitizenship() {
+        return citizenship;
+    }
+
+    public void setCitizenship(String citizenship) {
+        this.citizenship = citizenship;
     }
 
     public String getCivilStatus() {

@@ -29,7 +29,8 @@ public class UserProfileService {
                     userProfile.getBirthDate(),
                     userProfile.getAge(),
                     userProfile.getAddress(),
-                    userProfile.getCivilStatus());
+                    userProfile.getCivilStatus(),
+                    userProfile.getCitizenship());
 
             userProfileDTOList.add(userProfileDTO);
         }
@@ -46,7 +47,8 @@ public class UserProfileService {
                 userProfile.getBirthDate(),
                 userProfile.getAge(),
                 userProfile.getAddress(),
-                userProfile.getCivilStatus());
+                userProfile.getCivilStatus(),
+                userProfile.getCitizenship());
     }
 
     @Transactional
@@ -58,7 +60,8 @@ public class UserProfileService {
                     userProfileDTO.getBirthDate(),
                     userProfileDTO.getAge(),
                     userProfileDTO.getAddress(),
-                    userProfileDTO.getCivilStatus());
+                    userProfileDTO.getCivilStatus(),
+                    userProfileDTO.getCitizenship());
 
             userProfileRepository.save(userProfile);
 
@@ -79,7 +82,8 @@ public class UserProfileService {
         UserProfile userProfile = new UserProfile(existingUser.getName(),
                 existingUser.getEmail(), existingUser.getGender(),
                 existingUser.getBirthDate(), existingUser.getAge(),
-                existingUser.getAddress(), existingUser.getCivilStatus());
+                existingUser.getAddress(), existingUser.getCivilStatus(),
+                existingUser.getCitizenship());
 
         userProfile.setId(id);
         userProfileRepository.save(userProfile);
