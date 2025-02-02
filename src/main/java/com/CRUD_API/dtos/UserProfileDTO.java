@@ -16,18 +16,29 @@ public class UserProfileDTO {
 
     private Integer age;
     private String address;
+    private String civilStatus;
 
     public UserProfileDTO() {
 
     }
 
-    public UserProfileDTO(String name, String email, String gender, LocalDate birthDate, Integer age, String address) {
+    public UserProfileDTO(String name, String email, String gender, LocalDate birthDate, Integer age, String address, String civilStatus) {
         this.name = name;
         this.email = email;
         this.gender = gender;
         this.birthDate = birthDate;
         this.age = age;
         this.address = address;
+        this.civilStatus = civilStatus;
+    }
+
+    @JsonProperty("civilStatus")
+    public String getCivilStatus() {
+        return civilStatus;
+    }
+
+    public void setCivilStatus(String civilStatus) {
+        this.civilStatus = civilStatus;
     }
 
     @JsonProperty("address")
