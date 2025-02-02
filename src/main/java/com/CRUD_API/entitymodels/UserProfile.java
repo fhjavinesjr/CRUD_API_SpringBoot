@@ -36,16 +36,28 @@ public class UserProfile {
     @Transient
     private Integer age;
 
+    @NotBlank(message = "Address is mandatory")
+    private String address;
+
     public UserProfile() {
 
     }
 
-    public UserProfile(String name, String email, String gender, LocalDate birthDate, Integer age) {
+    public UserProfile(String name, String email, String gender, LocalDate birthDate, Integer age, String address) {
         this.name = name;
         this.email = email;
         this.gender = gender;
         this.birthDate = birthDate;
         this.age = age;
+        this.address = address;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Integer getAge() {

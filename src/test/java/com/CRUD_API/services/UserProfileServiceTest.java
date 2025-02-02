@@ -39,9 +39,9 @@ public class UserProfileServiceTest {
 
     @BeforeEach
     public void setup() {
-        userProfile = new UserProfile("John Doe", "john@example.com", "Male", LocalDate.of(1994, 9, 7), 30);
+        userProfile = new UserProfile("John Doe", "john@example.com", "Male", LocalDate.of(1994, 9, 7), 30, "testAddress1");
         userProfile.setId(1L);
-        userProfileDTO = new UserProfileDTO("John Doe", "john@example.com", "Male", LocalDate.of(1994, 9, 7), 30);
+        userProfileDTO = new UserProfileDTO("John Doe", "john@example.com", "Male", LocalDate.of(1994, 9, 7), 30, "testAddress1");
     }
 
     @Test
@@ -104,7 +104,7 @@ public class UserProfileServiceTest {
         Mockito.when(userProfileRepository.save(any(UserProfile.class))).thenReturn(userProfile);
 
         UserProfileDTO updatedUserDTO = new UserProfileDTO("John Updated",
-                "john_updated@example.com", "Male", LocalDate.of(1994, 9, 7), 30);
+                "john_updated@example.com", "Male", LocalDate.of(1994, 9, 7), 30, "testAddress1");
         UserProfileDTO result = userProfileService.updateUser(1L, updatedUserDTO);
 
         assertEquals("John Updated", result.getName());

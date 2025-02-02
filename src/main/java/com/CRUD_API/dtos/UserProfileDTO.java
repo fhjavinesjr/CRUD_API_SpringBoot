@@ -15,17 +15,28 @@ public class UserProfileDTO {
     private LocalDate birthDate;
 
     private Integer age;
+    private String address;
 
     public UserProfileDTO() {
 
     }
 
-    public UserProfileDTO(String name, String email, String gender, LocalDate birthDate, Integer age) {
+    public UserProfileDTO(String name, String email, String gender, LocalDate birthDate, Integer age, String address) {
         this.name = name;
         this.email = email;
         this.gender = gender;
         this.birthDate = birthDate;
         this.age = age;
+        this.address = address;
+    }
+
+    @JsonProperty("address")
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @JsonProperty("name")
