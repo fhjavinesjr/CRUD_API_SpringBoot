@@ -27,6 +27,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ../../Dockerfile # Adjust if your Dockerfile is in a different path
+          file: ./Dockerfile # Adjust if your Dockerfile is in a different path
           push: true
           tags: javinesferdinand/crud-api-springboot:latest
