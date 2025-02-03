@@ -50,8 +50,8 @@ public class UserProfileControllerTest {
         LocalDate localDate2 = LocalDate.parse(birthDate2, dateTimeFormatter);
 
         List<UserProfileDTO> userList = Arrays.asList(
-                new UserProfileDTO("John Doe", "john@example.com", "Male", localDate1, 32, "testAddress1", "single", "Filipino"),
-                new UserProfileDTO("Jane Doe", "jane@example.com", "Female", localDate2, 30, "testAddress2", "single", "Filipino")
+                new UserProfileDTO("John Doe", "john@example.com", "Male", localDate1, 32, "testAddress1", "single", "Filipino", "09534515906"),
+                new UserProfileDTO("Jane Doe", "jane@example.com", "Female", localDate2, 30, "testAddress2", "single", "Filipino", "09534515906")
         );
 
         Mockito.when(userProfileService.getAllUsers()).thenReturn(userList);
@@ -73,7 +73,7 @@ public class UserProfileControllerTest {
 
         LocalDate localDate1 = LocalDate.parse(birthDate1, dateTimeFormatter);
 
-        UserProfileDTO user = new UserProfileDTO("John Doe", "john@example.com", "Male", localDate1, 32, "testAddress1","single", "Filipino");
+        UserProfileDTO user = new UserProfileDTO("John Doe", "john@example.com", "Male", localDate1, 32, "testAddress1","single", "Filipino", "09534515906");
 
         String strLocalDate1 = localDate1.format(dateTimeFormatter);
 
@@ -102,7 +102,7 @@ public class UserProfileControllerTest {
         LocalDate localDate1 = LocalDate.parse(birthDate1, dateTimeFormatter);
 
         List<UserProfileDTO> userList = List.of(
-                new UserProfileDTO("John Doe", "john@example.com", "Male", localDate1, 32, "testAddress1","single", "Filipino")
+                new UserProfileDTO("John Doe", "john@example.com", "Male", localDate1, 32, "testAddress1","single", "Filipino", "09534515906")
         );
 
         Mockito.when(userProfileService.createUser(any())).thenReturn(userList);
@@ -126,7 +126,7 @@ public class UserProfileControllerTest {
 
         LocalDate localDate1 = LocalDate.parse(birthDate1, dateTimeFormatter);
 
-        UserProfileDTO updateUser = new UserProfileDTO("John Updated", "john_updated@example.com", "Male", localDate1, 32, "testAddress1","single", "Filipino");
+        UserProfileDTO updateUser = new UserProfileDTO("John Updated", "john_updated@example.com", "Male", localDate1, 32, "testAddress1","single", "Filipino", "09534515906");
 
         Mockito.when(userProfileService.updateUser(eq(1L), any())).thenReturn(updateUser);
 

@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -45,11 +46,14 @@ public class UserProfile {
     @NotBlank(message = "Citizenship is mandatory")
     private String citizenship;
 
+    @NotBlank(message = "Contact number is mandatory")
+    private String contactNumber;
+
     public UserProfile() {
 
     }
 
-    public UserProfile(String name, String email, String gender, LocalDate birthDate, Integer age, String address, String civilStatus, String citizenship) {
+    public UserProfile(String name, String email, String gender, LocalDate birthDate, Integer age, String address, String civilStatus, String citizenship, String contactNumber) {
         this.name = name;
         this.email = email;
         this.gender = gender;
@@ -58,6 +62,15 @@ public class UserProfile {
         this.address = address;
         this.civilStatus = civilStatus;
         this.citizenship = citizenship;
+        this.contactNumber = contactNumber;
+    }
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
     public String getCitizenship() {

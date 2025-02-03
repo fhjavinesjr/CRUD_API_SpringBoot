@@ -3,6 +3,7 @@ package com.CRUD_API.dtos;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 
 public class UserProfileDTO {
@@ -18,12 +19,13 @@ public class UserProfileDTO {
     private String address;
     private String civilStatus;
     private String citizenship;
+    private String contactNumber;
 
     public UserProfileDTO() {
 
     }
 
-    public UserProfileDTO(String name, String email, String gender, LocalDate birthDate, Integer age, String address, String civilStatus, String citizenship) {
+    public UserProfileDTO(String name, String email, String gender, LocalDate birthDate, Integer age, String address, String civilStatus, String citizenship, String contactNumber) {
         this.name = name;
         this.email = email;
         this.gender = gender;
@@ -32,7 +34,18 @@ public class UserProfileDTO {
         this.address = address;
         this.civilStatus = civilStatus;
         this.citizenship = citizenship;
+        this.contactNumber = contactNumber;
     }
+
+    @JsonProperty("contactNumber")
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
 
     @JsonProperty("citizenship")
     public String getCitizenship() {
