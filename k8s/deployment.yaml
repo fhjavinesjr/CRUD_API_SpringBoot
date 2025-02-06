@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crud-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crud-api
+  template:
+    metadata:
+      labels:
+        app: crud-api
+    spec:
+      containers:
+        - name: crud-api
+          image: javinesferdinand/crud-api-springboot:latest # my docker hub image
+          ports:
+            - containerPort: 8084
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "prod" # Adjust based on your setup
