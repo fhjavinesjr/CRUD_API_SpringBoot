@@ -51,7 +51,13 @@ jobs:
         run: |
           mkdir -p ~/.kube
           echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
-          
+
+          # Fix Windows paths with Linux paths (removing the wrong backslashes)
+          sed -i 's|C:\\Users\\javin\\.minikube|/home/runner/.minikube|g' ~/.kube/config
+          sed -i 's|client.crt|/home/runner/.minikube/profiles/minikube/client.crt|g' ~/.kube/config
+          sed -i 's|client.key|/home/runner/.minikube/profiles/minikube/client.key|g' ~/.kube/config
+          sed -i 's|ca.crt|/home/runner/.minikube/ca.crt|g' ~/.kube/config
+
       - name: Deploy to kubernetes
         run: |
           kubectl apply -f k8s/deployment.yaml
