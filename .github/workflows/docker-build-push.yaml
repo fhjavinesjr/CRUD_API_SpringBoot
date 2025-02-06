@@ -51,6 +51,9 @@ jobs:
         run: |
           mkdir -p ~/.kube
           echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+          
+          # Adjust the paths in the kubeconfig to be Linux-compatible
+          sed -i 's|C:\\Users\\javin\\.minikube|/home/runner/.minikube|g' ~/.kube/config
 
       - name: Deploy to kubernetes
         run: |
